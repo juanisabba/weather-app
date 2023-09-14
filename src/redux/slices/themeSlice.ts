@@ -1,11 +1,7 @@
-// themeSlice.ts
 import { createSlice } from '@reduxjs/toolkit';
+import { IThemeState } from '../../interfaces/theme.interface';
 
-interface ThemeState {
-  mode: 'light' | 'dark';
-}
-
-const initialState: ThemeState = {
+const initialState: IThemeState = {
   mode: 'light',
 };
 
@@ -20,5 +16,5 @@ const themeSlice = createSlice({
 });
 
 export const { toggleTheme } = themeSlice.actions;
-export const selectTheme = (state: { theme: ThemeState }) => state.theme.mode;
+export const selectTheme = (state: { theme: IThemeState }) => state.theme.mode;
 export default themeSlice.reducer;
