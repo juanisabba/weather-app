@@ -14,8 +14,10 @@ export const App = () => {
       <Searcher/>
       <CurrentWeather />
       <div>
-        {/* <DailyForecast/> */}
-        {/* <WeeklyForecast/> */}
+        <b>DAILY</b>
+        <DailyForecast/>
+          <b>WEEKLY</b>
+        <WeeklyForecast/>
       </div>
     </div>
   );
