@@ -1,16 +1,19 @@
 import { useWeather } from "../../hooks/useWeather";
 
 export const WeeklyForecast = () => {
-  const {  data } = useWeather("Madrid");
+  const {  data } = useWeather();
   return (
     <>
       {data && (
         <div>
-          {data.forecast.forecastday[0].hour.map((hour, index: number) =>(
+          {data.forecast.forecastday.map(({date, day}, index: number) =>(
             <div key={index}>
-                <p>{hour.time}</p>
-                <img src={hour.condition.icon} alt={hour.condition.text} />
-                <p>{hour.temp_c}°C</p>
+                <h3>{date}</h3>
+                <img src={day.condition.icon} alt={day.condition.text} />
+                <div>
+                <p>Min: {day.mintemp_c}°C</p>
+                <p>Max: {day.maxtemp_c}°C</p>
+                </div>
             </div>
           )) }
         </div>

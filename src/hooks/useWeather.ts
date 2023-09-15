@@ -3,12 +3,13 @@ import { getWeather } from "../redux/slices/weatherSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 
-export const useWeather = (city: string) => {
+export const useWeather = () => {
   const dispatch: AppDispatch = useDispatch();
   const { data } = useSelector(
     (state: RootState) => state.weather
   );
   const [isLoading, setIsLoading] = useState(true);
+  const city = "Madrid"
 
   const fetchWeather = () => {
     setIsLoading(true);

@@ -1,7 +1,7 @@
 import { useWeather } from "../../hooks/useWeather";
 
 export const CurrentWeather = () => {
-  const { data } = useWeather("Madrid");
+  const { data } = useWeather();
   return (
     <>
       {data && (
