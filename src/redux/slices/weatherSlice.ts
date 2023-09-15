@@ -27,11 +27,11 @@ const weatherSlice = createSlice({
 
 export const { setCurrentWeather, setDailyForecast, setWeeklyForecast } = weatherSlice.actions;
 
-export const getCurrentWeather = () => async (dispatch: AppDispatch) => {
+export const getCurrentWeather = (city: string) => async (dispatch: AppDispatch) => {
   try {
     const response: ICurrentWeatherResponse = await axios({
       method: "GET",
-      url: `http://api.weatherapi.com/v1/current.json?key=bea0b1ebed9b4426a2333128230908&q=Madrid&aqi=no`,
+      url: `http://api.weatherapi.com/v1/current.json?key=bea0b1ebed9b4426a2333128230908&q=${city}&aqi=no`,
     });
     dispatch(setCurrentWeather(response.data));
   } catch (e) {
