@@ -31,6 +31,7 @@ export const useWeather = () => {
   }
 
   useEffect(() => {
+    dispatch(setSelectedTime(null));
     fetchWeather();
     // eslint-disable-next-line
   }, [city]);
