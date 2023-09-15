@@ -7,3 +7,31 @@
 p, h2, h3, h4, div{
   color: #fff
 }
+
+/* Style the scrollbar track */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar track */
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: #b2aeae; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Round the corners of the thumb */
+}
+
+/* Style the scrollbar track on hover */
+::-webkit-scrollbar-track {
+  background: #504f4f; /* Color of the scrollbar thumb */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* Style the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #888; /* Color of the scrollbar thumb */
+}
+
+/* Style the scrollbar corner (not present in all browsers) */
+::-webkit-scrollbar-corner {
+  background: #ddd; /* Color of the scrollbar corner */
+}
