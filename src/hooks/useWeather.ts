@@ -1,22 +1,18 @@
 import { useEffect, useState } from "react";
+import { getWeather } from "../redux/slices/weatherSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
-import {
-  getCurrentWeather,
-  getDailyForecast,
-} from "../redux/slices/weatherSlice";
 
 export const useWeather = (city: string) => {
   const dispatch: AppDispatch = useDispatch();
-  const { currentWeather, dailyForecast } = useSelector(
+  const { data } = useSelector(
     (state: RootState) => state.weather
   );
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchWeather = () => {
     setIsLoading(true);
-    dispatch(getCurrentWeather(city));
-    dispatch(getDailyForecast(city));
+    dispatch(getWeather(city));
     setIsLoading(false);
   };
 
@@ -25,5 +21,5 @@ export const useWeather = (city: string) => {
     // eslint-disable-next-line
   }, []);
 
-  return { currentWeather, dailyForecast, isLoading, fetchWeather };
+  return { data, isLoading, fetchWeather };
 };

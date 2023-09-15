@@ -1,6 +1,6 @@
 import { useWeather } from "../../hooks/useWeather";
 
-export const DailyForecast = () => {
+export const WeeklyForecast = () => {
   const {  data } = useWeather("Madrid");
   return (
     <>
