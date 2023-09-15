@@ -1,15 +1,17 @@
 import { AppDispatch } from "../store";
-import { IWeather, IWeatherResponse } from "../../interfaces/weather.interface";
+import { Hour, IWeather, IWeatherResponse } from "../../interfaces/weather.interface";
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 interface InitalStateProps {
   data: IWeather | null;
   city: string;
+  selectedTime: Hour | null;
 }
 const initialState: InitalStateProps = {
   data: null,
   city: "Madrid",
+  selectedTime: null,
 };
 
 const weatherSlice = createSlice({
@@ -22,10 +24,13 @@ const weatherSlice = createSlice({
     setCity: (state, { payload }) => {
       state.city = payload;
     },
+    setSelectedTime: (state, { payload }) => {
+      state.selectedTime = payload;
+    },
   },
 });
 
-export const { setWeather, setCity } = weatherSlice.actions;
+export const { setWeather, setCity, setSelectedTime } = weatherSlice.actions;
 
 export const getWeather = (city: string) => async (dispatch: AppDispatch) => {
   try {

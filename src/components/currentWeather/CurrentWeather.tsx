@@ -5,9 +5,11 @@ import moment from "moment";
 import styles from "./currentWeather.module.less";
 
 export const CurrentWeather = () => {
-  const { data, city } = useWeather();
+  const { data, city, selectedTime } = useWeather();
   const { getFavoriteStatus, handleFavorite } = useFavorites();
   const [favorite, setFavorite] = useState(false);
+
+  console.log({selectedTime})
 
   useEffect(() => {
     if (data?.location.name) {
@@ -24,25 +26,25 @@ export const CurrentWeather = () => {
 
   return (
     <>
-      {data && (
+      {data && selectedTime && (
         <div className={styles.container}>
           <div className={styles.weather}>
             <h2 className={styles.temperature}>
-              {Math.round(data.current.temp_c)}
+              {Math.round(selectedTime.temp_c)}
               <span>°C</span>
             </h2>
             <div>
               <div className={styles.condition}>
                 <img
-                  src={data.current.condition.icon}
-                  alt={data.current.condition.text}
+                  src={selectedTime.condition.icon}
+                  alt={selectedTime.condition.text}
                 />
-                <h4>{data.current.condition.text}</h4>
+                <h4>{selectedTime.condition.text}</h4>
               </div>
               <div className={styles.extraInfo}>
-                <p>Precipitation: {data.current.precip_in}%</p>
-                <p>Humidity: {data.current.humidity}%</p>
-                <p>Wind: {data.current.wind_kph} km/h</p>
+                <p>Precipitation: {selectedTime.chance_of_rain}%</p>
+                <p>Humidity: {selectedTime.humidity}%</p>
+                <p>Wind: {selectedTime.wind_kph} km/h</p>
               </div>
             </div>
           </div>
@@ -51,7 +53,7 @@ export const CurrentWeather = () => {
               <h3>
                 {data.location.name}, {data.location.country}
               </h3>
-              <h4>{moment(data.location.localtime).calendar()}</h4>
+              <h4>{moment(selectedTime.time).calendar()}</h4>
             </div>
             <button onClick={handleFavoriteButton} className={styles.favoriteButton}>
               {favorite ? "Remove from favorites" : "Add to favorites"}
