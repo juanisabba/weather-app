@@ -4,11 +4,13 @@ import axios from "axios";
 import { IWeather, IWeatherResponse } from "../../interfaces/weather.interface";
 
 export interface InitalStateProps {
-  data: IWeather | null
+  data: IWeather | null;
+  city: string;
 }
 const initialState: InitalStateProps = {
-    data: null,
-}
+  data: null,
+  city: "Madrid",
+};
 
 const weatherSlice = createSlice({
   name: "weather",
@@ -17,10 +19,13 @@ const weatherSlice = createSlice({
     setWeather: (state, { payload }) => {
       state.data = payload;
     },
+    setCity: (state, { payload }) => {
+      state.city = payload;
+    },
   },
 });
 
-export const { setWeather } = weatherSlice.actions;
+export const { setWeather, setCity } = weatherSlice.actions;
 
 export const getWeather = (city: string) => async (dispatch: AppDispatch) => {
   try {

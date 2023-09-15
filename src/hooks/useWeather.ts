@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import { getWeather } from "../redux/slices/weatherSlice";
+import { getWeather, setCity } from "../redux/slices/weatherSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 
 export const useWeather = () => {
   const dispatch: AppDispatch = useDispatch();
-  const { data } = useSelector(
+  const { data, city} = useSelector(
     (state: RootState) => state.weather
   );
   const [isLoading, setIsLoading] = useState(true);
-  const city = "Madrid"
 
   const fetchWeather = () => {
     setIsLoading(true);
@@ -17,10 +16,16 @@ export const useWeather = () => {
     setIsLoading(false);
   };
 
+  const fetchCity = (city: string) => {
+    setIsLoading(true);
+    dispatch(setCity(city));
+    setIsLoading(false)
+  }
+
   useEffect(() => {
     fetchWeather();
     // eslint-disable-next-line
-  }, []);
+  }, [city]);
 
-  return { data, isLoading, fetchWeather };
+  return { data, isLoading, fetchCity };
 };
