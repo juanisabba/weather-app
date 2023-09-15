@@ -2,6 +2,7 @@ import { AppDispatch } from "../store";
 import { Hour, IWeather, IWeatherResponse } from "../../interfaces/weather.interface";
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { messageHandler } from "../../utlis/messageHandler";
 
 interface InitalStateProps {
   data: IWeather | null;
@@ -40,7 +41,10 @@ export const getWeather = (city: string) => async (dispatch: AppDispatch) => {
     });
     dispatch(setWeather(response.data));
   } catch (e) {
-    console.log("error");
+    messageHandler({
+      type: "error",
+      message: "An error has occurred",
+    });
   }
 };
 

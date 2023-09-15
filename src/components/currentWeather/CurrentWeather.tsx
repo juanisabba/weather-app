@@ -9,8 +9,6 @@ export const CurrentWeather = () => {
   const { getFavoriteStatus, handleFavorite } = useFavorites();
   const [favorite, setFavorite] = useState(false);
 
-  console.log({selectedTime})
-
   useEffect(() => {
     if (data?.location.name) {
       setFavorite(getFavoriteStatus(data.location.name));

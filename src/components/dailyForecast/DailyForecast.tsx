@@ -17,7 +17,6 @@ export const DailyForecast = () => {
   // the quantity of hours remaining fom today
   const hoursFromToday =
     24 - Number(moment(data?.location.localtime).format("HH"));
-  console.log(hoursFromToday);
 
   return (
     <>

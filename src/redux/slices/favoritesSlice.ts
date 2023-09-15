@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AppDispatch } from "../store";
+import { messageHandler } from "../../utlis/messageHandler";
 
 interface InitalStateProps {
   data: string[];
@@ -24,22 +25,35 @@ const favoritesSlice = createSlice({
 export const { addFavoriteReducer, removeFavoriteReducer } =
   favoritesSlice.actions;
 
-export const addFavorite = (id: string) => async (dispatch: AppDispatch) => {
+export const addFavorite = (city: string) => async (dispatch: AppDispatch) => {
   try {
-    dispatch(addFavoriteReducer(id));
-    console.log("fav added");
+    dispatch(addFavoriteReducer(city));
+    messageHandler({
+      type: "success",
+      message: `"${city}" added to favorites`,
+    });
   } catch (e) {
-    console.log("error");
+    messageHandler({
+      type: "error",
+      message: "An error has occurred",
+    });
   }
 };
 
-export const removeFavorite = (id: string) => async (dispatch: AppDispatch) => {
-  try {
-    dispatch(removeFavoriteReducer(id));
-    console.log("fav removed")
-  } catch (e) {
-    console.log("error");
-  }
-};
+export const removeFavorite =
+  (city: string) => async (dispatch: AppDispatch) => {
+    try {
+      dispatch(removeFavoriteReducer(city));
+      messageHandler({
+        type: "success",
+        message: `"${city}" deleted from favorites`,
+      });
+    } catch (e) {
+      messageHandler({
+        type: "error",
+        message: "An error has occurred",
+      });
+    }
+  };
 
 export default favoritesSlice.reducer;
