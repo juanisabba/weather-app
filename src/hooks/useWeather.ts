@@ -27,5 +27,5 @@ export const useWeather = () => {
     // eslint-disable-next-line
   }, [city]);
 
-  return { data, isLoading, fetchCity };
+  return { data, city, isLoading, fetchCity };
 };

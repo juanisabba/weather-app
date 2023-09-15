@@ -1,9 +1,9 @@
 import { AppDispatch } from "../store";
+import { IWeather, IWeatherResponse } from "../../interfaces/weather.interface";
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { IWeather, IWeatherResponse } from "../../interfaces/weather.interface";
 
-export interface InitalStateProps {
+interface InitalStateProps {
   data: IWeather | null;
   city: string;
 }

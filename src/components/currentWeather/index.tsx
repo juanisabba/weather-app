@@ -1,7 +1,25 @@
+import { useEffect, useState } from "react";
+import { useFavorites } from "../../hooks/useFavorites";
 import { useWeather } from "../../hooks/useWeather";
 
 export const CurrentWeather = () => {
-  const { data } = useWeather();
+  const { data, city } = useWeather();
+  const { getFavoriteStatus, handleFavorite } = useFavorites();
+  const [favorite, setFavorite] = useState(false);
+
+  useEffect(() => {
+    if(data?.location.name){
+      setFavorite(getFavoriteStatus(data.location.name));
+    }
+    //eslint-disable-next-line
+  }, [handleFavorite, city, getFavoriteStatus]);
+
+  const handleFavoriteButton = () => {
+    if(data?.location.name){
+      handleFavorite(data.location.name);
+    }
+  }
+
   return (
     <>
       {data && (
@@ -18,6 +36,9 @@ export const CurrentWeather = () => {
           </h4>
         </div>
       )}
+      <button onClick={handleFavoriteButton}>
+        {favorite ? "Remove from favorites" : "Add to favorites"}
+      </button>
     </>
   );
 };
