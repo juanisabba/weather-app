@@ -1,5 +1,7 @@
 import { useState, FormEvent } from "react";
 import { useWeather } from "../../hooks/useWeather";
+import {SearchIcon} from "../../assets/icons"
+import styles from "./header.module.less";
 
 export const Searcher = () => {
   const [newCity, setNewCity] = useState("");
@@ -16,19 +18,18 @@ export const Searcher = () => {
         setErrorMessage(false);
   };
   return (
-    <div>
+    <div className={styles.searcherContainer}>
       <form onSubmit={handleNewCity}>
+        <img src={SearchIcon} alt="" />
         <input
           type="text"
-          placeholder="Search"
+          placeholder="Buscar ciudad"
           onChange={(e) => setNewCity(e.target.value)}
           value={newCity}
         />
-        <button>Search</button>
       </form>
-      {errorMessage && (
-        <p>Introduce mínimo 3 letras para una búsqueda más eficiente</p>
-      )}
+      
+        <p>{errorMessage && "Introduce mínimo 3 letras para una búsqueda más eficiente"}</p>
     </div>
   );
 };
