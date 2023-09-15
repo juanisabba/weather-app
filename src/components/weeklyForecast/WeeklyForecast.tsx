@@ -5,9 +5,10 @@ import styles from "./weeklyForecast.module.less";
 export const WeeklyForecast = () => {
   const { data } = useWeather();
   return (
-    <div className={styles.container}>
+    <>
       {data && (
-        <div className={styles.daysList}>
+        <div className={styles.container}>
+          <h2 className={styles.title}>Weekly Forecast</h2>
           {data.forecast.forecastday.map(({ date, day }, index: number) => (
             <div key={index} className={styles.day}>
               <h3>{moment(date).format("dddd")}</h3>
@@ -20,6 +21,6 @@ export const WeeklyForecast = () => {
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 };
