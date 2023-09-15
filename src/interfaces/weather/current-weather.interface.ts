@@ -1,9 +1,3 @@
-export interface IWeather {
-    currentWeather: ICurrentWeather | null;
-    dailyForecast: string | null;
-    weeklyForecast: string | null;
-}
-
 export interface ICurrentWeather {
     location: Location;
     current:  Current;

@@ -1,9 +1,15 @@
 import { AppDispatch } from "../store";
-import { ICurrentWeatherResponse, IWeather } from "../../interfaces/weather.interface";
+import { ICurrentWeather, ICurrentWeatherResponse, } from "../../interfaces/weather/current-weather.interface";
+import { IDailyForecast, IDailyForecastResponse } from "../../interfaces/weather/daily-forecast.interface";
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState: IWeather = {
+export interface InitalStateProps {
+  currentWeather: ICurrentWeather | null;
+  dailyForecast: IDailyForecast | null;
+  weeklyForecast: string | null;
+}
+const initialState: InitalStateProps = {
     currentWeather: null,
     dailyForecast: null,
     weeklyForecast: null,
@@ -39,17 +45,17 @@ export const getCurrentWeather = (city: string) => async (dispatch: AppDispatch)
   }
 };
 
-// export const getProductsByCategory = (category: string) => async (dispatch: AppDispatch) => {
-//   try {
-//     const response: ICompleteProductsResp = await axios({
-//       method: "GET",
-//       url: `http://localhost:3001/api/products?category=${category}`,
-//     });
-//     dispatch(setProducts(response.data));
-//   } catch (e) {
-//     console.log("error");
-//   }
-// };
+export const getDailyForecast  = (city: string) => async (dispatch: AppDispatch) => {
+  try {
+    const response: IDailyForecastResponse = await axios({
+      method: "GET",
+      url: `http://api.weatherapi.com/v1/forecast.json?key=bea0b1ebed9b4426a2333128230908&q=${city}&days=1&aqi=no&alerts=no`,
+    });
+    dispatch(setDailyForecast(response.data));
+  } catch (e) {
+    console.log("error");
+  }
+};
 
 // export const getProductById  = (id: string) => async (dispatch: AppDispatch) => {
 //   try {

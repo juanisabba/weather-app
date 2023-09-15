@@ -1,7 +1,7 @@
-import { useCurrentWeather } from "../../hooks/useCurrentWeather";
+import { useWeather } from "../../hooks/useWeather";
 
 export const CurrentWeather = () => {
-  const { data } = useCurrentWeather("Madrid");
+  const { currentWeather: data } = useWeather("Madrid");
   return (
     <>
       {data && (
