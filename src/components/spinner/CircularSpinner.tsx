@@ -1,16 +1,9 @@
-import styles from "./circular-spinner.module.css";
+import styles from "./circular-spinner.module.less";
 
-interface Props {
-  color: string;
-}
-
-export const CircularSpinner = ({ color }: Props) => {
+export const CircularSpinner = () => {
   return (
-    <div className={styles.spinner__container}>
-      <div
-        style={{ borderTopColor: color, borderRightColor: color }}
-        className={styles.spinner}
-      ></div>
+    <div className={styles.spinnerContainer}>
+      <div className={styles.spinner}></div>
     </div>
   );
 };

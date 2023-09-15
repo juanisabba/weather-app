@@ -13,13 +13,13 @@ export const useWeather = () => {
   const fetchWeather = () => {
     setIsLoading(true);
     dispatch(getWeather(city));
-    setIsLoading(false);
-  };
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 400);
+      };
 
   const fetchCity = (city: string) => {
-    setIsLoading(true);
     dispatch(setCity(city));
-    setIsLoading(false)
   }
 
   useEffect(() => {
