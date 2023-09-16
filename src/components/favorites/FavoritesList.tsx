@@ -1,4 +1,5 @@
 import { useFavorites } from "../../hooks/useFavorites";
+import { useWeather } from "../../hooks/useWeather";
 import styles from "./styles.module.less";
 
 interface Props {
@@ -8,6 +9,13 @@ interface Props {
 
 export const FavoritesList = ({visible, closeMenu}: Props) => {
   const { favorites, handleFavorite } = useFavorites();
+  const { fetchCity } = useWeather();
+
+  const changeCity = (city: string) => {
+    fetchCity(city);
+    closeMenu();
+  }
+
   return (
     <div className={`${styles.favoritesContainer} ${visible && styles.favoriteVisible}`}>
       <button className={styles.close} onClick={closeMenu}>x</button>
@@ -19,7 +27,7 @@ export const FavoritesList = ({visible, closeMenu}: Props) => {
       ) : (
         favorites.map((city, index: number) => (
           <div className={styles.cityContainer} key={index}>
-            <p className={styles.city}>{city}</p>
+            <p onClick={()=>changeCity(city)} className={styles.city}>{city}</p>
             <button onClick={() => handleFavorite(city)}>x</button>
           </div>
         ))
