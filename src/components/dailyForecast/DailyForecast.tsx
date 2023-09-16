@@ -4,9 +4,11 @@ import { useState } from "react";
 import { Hour } from "../../interfaces/weather.interface";
 import { SingleHour } from "./SingleHour";
 import styles from "./styles.module.less";
+import { useTheme } from "../../hooks/useTheme";
 
 export const DailyForecast = () => {
   const { data, changeTime } = useWeather();
+  const {theme} = useTheme()
   const [selected, setSelected] = useState(0);
 
   const selectNewTime = (data: Hour, index: number) => {
@@ -21,7 +23,7 @@ export const DailyForecast = () => {
   return (
     <>
       {data && (
-        <div className={styles.dailyForecastContainer}>
+        <div className={`${styles.dailyForecastContainer} ${styles[theme]}`}>
           {/* Today's forecast */}
           {data.forecast.forecastday[0].hour
             .slice(24 - hoursFromToday, 24)

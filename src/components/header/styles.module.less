@@ -1,3 +1,32 @@
+@light-text-color: rgba(0, 0, 0, 0.8);;
+@light-background-color: rgba(255, 255, 255, 0.3);
+@dark-text-color: rgba(255, 255, 255, 0.8);
+@dark-background-color: rgba(0, 0, 0, 0.3);
+
+.light {
+  .buttonFavorite{
+    background-color: @light-background-color;
+  }
+  form{
+    background-color: @light-background-color;
+    input::placeholder{
+      color: @light-text-color
+    }
+  }
+}
+
+.dark {
+  .buttonFavorite {
+    background-color: @dark-background-color;
+  }
+  form{
+    background-color: @dark-background-color;
+    input::placeholder{
+      color: @dark-text-color
+    }
+  }
+}
+
 .headerContainer {
   display: flex;
   justify-content: center;
@@ -9,7 +38,6 @@
     form {
       display: flex;
       align-items: center;
-      background-color: rgba(255, 255, 255, 0.5);
       border-radius: 15px;
       padding: 0 10px;
       input{
@@ -32,7 +60,6 @@
       padding: 8px 15px;
       border: none;
       border-radius: 3px;
-      background-color: rgba(0, 0, 0, .4);
     }
   }
 }

@@ -1,6 +1,23 @@
+@light-background-color: rgba(255, 255, 255, 0.6);
+@dark-text-color: #fff;
+@dark-background-color: rgba(0, 0, 0, 0.6);
+
+.light {
+  .favoriteButton {
+    background-color: @light-background-color;
+  }
+}
+
+.dark {
+  .favoriteButton {
+    background-color: @dark-background-color;
+  }
+}
+
 .currentWeatherContainer {
   padding: 10px 15px;
   border-radius: 20px;
+  color: #fff;
   margin-bottom: 15px;
   .weather {
     display: flex;
@@ -14,28 +31,33 @@
     font-size: 80px;
     font-weight: 600;
     margin-right: 30px;
+    color: @dark-text-color;
     span {
       font-size: 40px;
       margin-top: 10px;
     }
   }
-.conditionContainer{
+  .conditionContainer {
     .condition {
-    display: flex;
-    align-items: center;
-    img{
-      margin-left: -10px;
-      width: 60px;
+      display: flex;
+      align-items: center;
+      img {
+        margin-left: -10px;
+        width: 60px;
+      }
+      h4{
+        color: @dark-text-color;
+      }
     }
-  }
 
-  .extraInfo {
-    p {
-      padding: 2px 0;
-      font-size: 14px;
+    .extraInfo {
+      p {
+        padding: 2px 0;
+        font-size: 14px;
+        color: @dark-text-color;
+      }
     }
   }
-}
 
   .locationInfo {
     display: flex;
@@ -47,19 +69,19 @@
         font-weight: bold;
         font-size: 24px;
         padding-bottom: 5px;
+        color: @dark-text-color;
       }
       h4 {
         font-size: 15px;
+        color: @dark-text-color;
       }
     }
     .favoriteButton {
-      background-color: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(20px);
-      min-width: 130px; 
+      min-width: 130px;
       border: none;
       padding: 8px 13px;
       border-radius: 15px;
-      color: #fff;
       margin-top: 10px;
       margin-left: 40px;
     }

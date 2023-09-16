@@ -1,3 +1,20 @@
+@light-text-color: #000;
+@dark-text-color: #fff;
+
+.light{
+  .spinner{
+    border-top-color: @light-text-color; 
+    border-right-color: @light-text-color; 
+}
+}
+
+.dark{
+  .spinner{
+    border-top-color: @dark-text-color; 
+    border-right-color: @dark-text-color; 
+  }
+}
+
 .spinnerContainer {
     display: flex;
     justify-content: center;
@@ -7,8 +24,8 @@
     width: 100%;
     .spinner {
       border: 5px solid transparent;
-      border-top: 5px solid #fff; 
-      border-right: 5px solid #fff; 
+      border-top: 5px solid; 
+      border-right: 5px solid; 
       border-radius: 50%;
       width: 150px;
       height: 150px;

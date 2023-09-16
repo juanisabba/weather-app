@@ -5,23 +5,22 @@ import { CurrentWeather } from "./components/currentWeather/CurrentWeather";
 import { DailyForecast } from "./components/dailyForecast/DailyForecast";
 import { WeeklyForecast } from "./components/weeklyForecast/WeeklyForecast";
 import { CircularSpinner } from "./components/spinner/CircularSpinner";
-// import { RootState } from "./redux/store";
-// import { useSelector } from "react-redux";
 import { useWeather } from "./hooks/useWeather";
 import { ToastContainer } from "react-toastify";
 import { SuscriptionModal } from "./components/suscriptionModal/SuscriptionModal";
-import "./App.less";
 import { weatherBackgrounds } from "./weatherBackground";
 import { SunnyDay } from "./assets/background";
-import moment from 'moment'
-import 'moment/dist/locale/es';
-moment.locale('es')
+import moment from "moment";
+import "moment/dist/locale/es";
+import { useTheme } from "./hooks/useTheme";
+import styles from "./App.module.less";
 
+moment.locale("es");
 
 export const App = () => {
-  // const { mode: theme } = useSelector((state: RootState) => state.theme);
   const { requests, isLoading, selectedTime, data } = useWeather();
   const [openFavorites, setOpenFavorites] = useState(false);
+  const { theme } = useTheme();
 
   const handleFavoriteList = () => {
     if (openFavorites) setOpenFavorites(false);
@@ -35,8 +34,10 @@ export const App = () => {
 
   return (
     <div
-      className="app"
-      style={{ backgroundImage: `url("${backgorundWeather}")` }}
+      className={`${styles.appContainer} ${styles[theme]}`}
+      style={{
+        backgroundImage: `url("${backgorundWeather}")`,
+      }}
     >
       {isLoading ? (
         <CircularSpinner />
@@ -47,20 +48,18 @@ export const App = () => {
             visible={openFavorites}
             closeMenu={() => setOpenFavorites(false)}
           />
-          <div className="app-container" onClick={handleFavoriteList}>
+          <div className={styles.app} onClick={handleFavoriteList}>
             <Header onClick={() => setOpenFavorites(true)} />
-            <div className="app-body">
-              <div className="body-info">
+            <div className={styles.appBody}>
+              <div className={styles.bodyInfo}>
                 <CurrentWeather />
                 <DailyForecast />
               </div>
-              <div className="body-forecast">
+              <div className={styles.bodyForecast}>
                 <WeeklyForecast />
               </div>
             </div>
-            <p className="footer">
-              Peticiones gratuitas: {requests} / 5
-            </p>
+            <p className={styles.footer}>Peticiones gratuitas: {requests} / 5</p>
           </div>
           {requests > 5 && <SuscriptionModal />}
         </>

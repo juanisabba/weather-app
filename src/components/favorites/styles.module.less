@@ -1,15 +1,43 @@
+@light-text-color: #000;;
+@light-background-color: rgb(219, 186, 186);
+@light-border-color: rgba(0, 0, 0, 0.3);
+
+@dark-text-color: #fff;
+@dark-background-color: rgb(63, 54, 54);
+@dark-border-color: rgba(255, 2555, 255, 0.3);
+
+.light {
+    background-color: @light-background-color;
+    .close{
+      background-color: @dark-background-color;
+    }
+    .cityContainer{
+      border-bottom: 1px solid @light-border-color;
+    }
+  }
+
+.dark {
+    background-color: @dark-background-color;
+    .close{
+      background-color: @light-background-color;
+    }
+    .cityContainer{
+      border-bottom: 1px solid @dark-border-color;
+    }
+}
+
+
 .favoritesContainer {
   position: fixed;
   height: 100%;
   width: 400px;
   top: 0;
   right: -400px;
-  background-color: rgb(63, 54, 54);
   z-index: 100;
   padding: 40px;
   transition: right .5s;
   .title {
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid;
     padding-bottom: 15px;
   }
   .close {
@@ -20,7 +48,6 @@
     width: 30px;
     height: 30px;
     border-radius: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
     font-size: 15px;
   }
 
@@ -33,7 +60,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px 10px;
-    border-bottom: 1px solid rgba(255, 2555, 255, 0.3);
     .city:hover {
       text-decoration: underline;
       cursor: pointer;

@@ -1,26 +1,23 @@
 import { useState, FormEvent } from "react";
 import { useWeather } from "../../hooks/useWeather";
-import {SearchIcon} from "../../assets/icons"
+import { SearchIcon } from "../../assets/icons";
 import styles from "./styles.module.less";
+import { useTheme } from "../../hooks/useTheme";
 
 export const Searcher = () => {
+  const { fetchCity } = useWeather();
+  const {theme} = useTheme()
   const [newCity, setNewCity] = useState("");
-  const [errorMessage, setErrorMessage] = useState(false);
-  const {fetchCity} = useWeather()
 
   const handleNewCity = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (newCity.length < 3) {
-      setErrorMessage(true);
-      return;
-    }
-        fetchCity(newCity);
-        setErrorMessage(false);
+    fetchCity(newCity);
   };
+
   return (
-    <div className={styles.searcherContainer}>
+    <div className={`${styles.searcherContainer} ${styles[theme]}`}>
       <form onSubmit={handleNewCity}>
-        <img src={SearchIcon} alt="" />
+        <img src={SearchIcon} alt="Search" />
         <input
           type="text"
           placeholder="Buscar ciudad"
@@ -28,8 +25,6 @@ export const Searcher = () => {
           value={newCity}
         />
       </form>
-      
-        <p>{errorMessage && "Introduce mínimo 3 letras para una búsqueda más eficiente"}</p>
     </div>
   );
 };

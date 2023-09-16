@@ -1,3 +1,7 @@
+@primary-color: #fff;
+@secondary-color: #000;
+@backgorund-color: #4e4141;
+
 .modalContainer {
   top: 0;
   position: fixed;
@@ -11,12 +15,14 @@
   .modal {
     width: 100%;
     max-width: 1000px;
-    background-color: #4e4141;
+    background-color: @backgorund-color;
     padding: 30px;
     border-radius: 10px;
     text-align: center;
     h2 {
+      color: @primary-color;
       padding-bottom: 20px;
+
     }
   }
 
@@ -27,7 +33,7 @@
   }
 
   .card {
-    background-color: #fff;
+    background-color: @primary-color;
     padding: 15px;
     width: 290px;
     border-radius: 20px;
@@ -37,7 +43,8 @@
       font-weight: 100;
     }
     .price {
-      background-color: #000;
+      background-color: @secondary-color;
+      color: @primary-color;
       padding: 5px 30px;
       border-radius: 20px;
       position: relative;
@@ -61,10 +68,12 @@
           font-weight: 400;
           padding: 5px 0;
           font-size: 16px;
+          color: @primary-color;
         }
       }
     }
     button {
+      color: @primary-color;
       border-radius: 20px;
       border: none;
       width: 100%;

@@ -4,10 +4,12 @@ import { useWeather } from "../../hooks/useWeather";
 import moment from "moment";
 import styles from "./styles.module.less";
 import { capitalizeString } from "../../utlis/capitalizeString";
+import { useTheme } from "../../hooks/useTheme";
 
 export const CurrentWeather = () => {
   const { data, city, selectedTime } = useWeather();
   const { getFavoriteStatus, handleFavorite } = useFavorites();
+  const {theme} = useTheme()
   const [favorite, setFavorite] = useState(false);
 
   useEffect(() => {
@@ -26,7 +28,7 @@ export const CurrentWeather = () => {
   return (
     <>
       {data && selectedTime && (
-        <div className={styles.currentWeatherContainer}>
+        <div className={`${styles.currentWeatherContainer} ${styles[theme]}`}>
           <div className={styles.weather}>
             <h2 className={styles.temperature}>
               {Math.round(selectedTime.temp_c)}

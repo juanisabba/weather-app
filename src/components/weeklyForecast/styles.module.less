@@ -1,10 +1,28 @@
+@light-text-color: #000;
+@light-background-color: rgba(255, 255, 255, .6);
+@dark-text-color: #fff;
+@dark-background-color: rgba(0, 0, 0, .6);
+
+.light{
+  background-color: @light-background-color;
+  .title{
+    border-bottom-color: @light-text-color;
+  }
+}
+
+.dark{
+  background-color: @dark-background-color;
+  .title{
+    border-bottom-color: @dark-text-color;
+  }
+}
+
 .weeklyForecastContainer {
-  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
   backdrop-filter: blur(5px);
   padding: 20px;
   .title {
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid;
     padding-bottom: 10px;
     font-size: 20px;
   }
