@@ -21,7 +21,7 @@ export const DailyForecast = () => {
   return (
     <>
       {data && (
-        <div className={styles.container}>
+        <div className={styles.dailyForecastContainer}>
           {/* Today's forecast */}
           {data.forecast.forecastday[0].hour
             .slice(24 - hoursFromToday, 24)

@@ -1,7 +1,7 @@
 import { useState, FormEvent } from "react";
 import { useWeather } from "../../hooks/useWeather";
 import {SearchIcon} from "../../assets/icons"
-import styles from "./header.module.less";
+import styles from "./styles.module.less";
 
 export const Searcher = () => {
   const [newCity, setNewCity] = useState("");

@@ -4,7 +4,7 @@ import styles from "./styles.module.less"
 
 export const SuscriptionModal = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.modalContainer}>
       <div className={styles.modal}>
         <h2>Haz alcanzado el límite de búsquedas gratuitas. ¡Vuélvete miembro!</h2>
         <div className={styles.cardsContainer}>

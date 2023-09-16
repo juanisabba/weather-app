@@ -1,25 +1,21 @@
-.container{
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 20px;
-    backdrop-filter: blur(5px);
-    display: flex;
-    width: 500px;
-    overflow-x: scroll;
-    cursor: pointer;
-}
-
-.hoursList {
+.dailyForecastContainer {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  display: flex;
+  overflow-x: scroll;
+  cursor: pointer;
+  .hoursList {
     padding: 15px;
     text-align: center;
-    img{
-        padding: 5px 0;
+    img {
+      padding: 5px 0;
     }
-}
-
-.selected{
+  }
+  .selected {
     background-color: rgba(0, 0, 0, 0.4);
-}
-
-.unselected:hover{
+  }
+  .unselected:hover {
     background-color: rgba(0, 0, 0, 0.2);
+  }
 }

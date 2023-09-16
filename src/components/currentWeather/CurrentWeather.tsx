@@ -25,13 +25,13 @@ export const CurrentWeather = () => {
   return (
     <>
       {data && selectedTime && (
-        <div className={styles.container}>
+        <div className={styles.currentWeatherContainer}>
           <div className={styles.weather}>
             <h2 className={styles.temperature}>
               {Math.round(selectedTime.temp_c)}
               <span>°C</span>
             </h2>
-            <div>
+            <div className={styles.conditionContainer}>
               <div className={styles.condition}>
                 <img
                   src={selectedTime.condition.icon}

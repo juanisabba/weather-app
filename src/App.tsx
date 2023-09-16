@@ -46,15 +46,15 @@ export const App = () => {
           <div onClick={handleFavoriteList}>
             <Header onClick={() => setOpenFavorites(true)} />
             <div className="app-body">
-              <div>
+              <div className="body-info">
                 <CurrentWeather />
                 <DailyForecast />
               </div>
-              <div>
+              <div className="body-forecast">
                 <WeeklyForecast />
               </div>
             </div>
-            <p style={{ textAlign: "center", marginTop: "20px" }}>
+            <p className="footer">
               <b>Peticiones gratuitas: {requests} / 5</b>
             </p>
           </div>

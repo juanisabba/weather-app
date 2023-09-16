@@ -1,4 +1,4 @@
-import styles from "./circular-spinner.module.less";
+import styles from "./styles.module.less";
 
 export const CircularSpinner = () => {
   return (

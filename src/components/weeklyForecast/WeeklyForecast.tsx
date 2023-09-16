@@ -1,13 +1,13 @@
 import { useWeather } from "../../hooks/useWeather";
 import moment from "moment";
-import styles from "./weeklyForecast.module.less";
+import styles from "./styles.module.less";
 
 export const WeeklyForecast = () => {
   const { data } = useWeather();
   return (
     <>
       {data && (
-        <div className={styles.container}>
+        <div className={styles.weeklyForecastContainer}>
           <h2 className={styles.title}>Weekly Forecast</h2>
           {data.forecast.forecastday.map(({ date, day }, index: number) => (
             <div key={index} className={styles.day}>

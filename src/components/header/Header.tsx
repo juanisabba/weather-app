@@ -1,5 +1,5 @@
 import { Searcher } from './Searcher'
-import styles from './header.module.less'
+import styles from './styles.module.less'
 
 interface Props {
   onClick: () => void;
@@ -7,7 +7,7 @@ interface Props {
 
 export const Header = ({onClick}: Props) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.headerContainer}>
         <Searcher/>
         <p onClick={onClick}>Mis Favoritos</p>
     </div>

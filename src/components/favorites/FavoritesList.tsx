@@ -9,7 +9,7 @@ interface Props {
 export const FavoritesList = ({visible, closeMenu}: Props) => {
   const { favorites, handleFavorite } = useFavorites();
   return (
-    <div className={`${styles.container} ${visible && styles.favoriteVisible}`}>
+    <div className={`${styles.favoritesContainer} ${visible && styles.favoriteVisible}`}>
       <button className={styles.close} onClick={closeMenu}>x</button>
       <h2 className={styles.title}>Mis ciudades favoritas</h2>
       {favorites.length === 0 ? (
