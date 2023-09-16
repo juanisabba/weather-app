@@ -1,0 +1,53 @@
+.container {
+  position: fixed;
+  height: 100%;
+  width: 400px;
+  top: 0;
+  right: -400px;
+  background-color: rgb(22, 22, 72);
+  z-index: 100;
+  padding: 40px;
+  transition: right .5s;
+  .title {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 15px;
+  }
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 15px;
+  }
+
+  .noFavorites {
+    margin-top: 30px;
+  }
+
+  .cityContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+    border-bottom: 1px solid rgba(255, 2555, 255, 0.3);
+    .city:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    button {
+      border: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      font-size: 15px;
+    }
+  }
+}
+
+.favoriteVisible{
+    right: 0;
+}
