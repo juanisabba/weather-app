@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useFavorites } from "../../hooks/useFavorites";
 import { useWeather } from "../../hooks/useWeather";
 import moment from "moment";
-import styles from "./currentWeather.module.less";
+import styles from "./styles.module.less";
 
 export const CurrentWeather = () => {
   const { data, city, selectedTime } = useWeather();

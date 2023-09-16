@@ -34,7 +34,9 @@ export const App = () => {
             </div>
             {/* <FavoritesList /> */}
           </div>
-          <p>Peticiones gratuitas: {requests} / 5</p>
+          <p style={{ textAlign: "center", marginTop: "20px" }}>
+            <b>Peticiones gratuitas: {requests} / 5</b>
+          </p>
           {requests >= 5 && <SuscriptionModal />}
         </>
       )}

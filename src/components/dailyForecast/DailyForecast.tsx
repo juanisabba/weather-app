@@ -1,9 +1,9 @@
 import { useWeather } from "../../hooks/useWeather";
 import moment from "moment";
-import styles from "./dailyForecast.module.less";
 import { useState } from "react";
 import { Hour } from "../../interfaces/weather.interface";
 import { SingleHour } from "./SingleHour";
+import styles from "./styles.module.less";
 
 export const DailyForecast = () => {
   const { data, changeTime } = useWeather();

@@ -1,6 +1,6 @@
 import moment from "moment";
 import { Hour } from "../../interfaces/weather.interface";
-import styles from "./dailyForecast.module.less"
+import styles from "./styles.module.less"
 
 interface Props{
     hour: Hour;
