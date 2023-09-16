@@ -30,12 +30,12 @@ export const addFavorite = (city: string) => async (dispatch: AppDispatch) => {
     dispatch(addFavoriteReducer(city));
     messageHandler({
       type: "success",
-      message: `"${city}" added to favorites`,
+      message: `"${city}" agregada a favoritos`,
     });
   } catch (e) {
     messageHandler({
       type: "error",
-      message: "An error has occurred",
+      message: "Ha ocurrido un error",
     });
   }
 };
@@ -46,14 +46,14 @@ export const removeFavorite =
       dispatch(removeFavoriteReducer(city));
       messageHandler({
         type: "success",
-        message: `"${city}" deleted from favorites`,
+        message: `"${city}" eliminada de favoritos`,
       });
     } catch (e) {
       messageHandler({
         type: "error",
-        message: "An error has occurred",
+        message: "Ha ocurrido un error",
       });
-    }
+      }
   };
 
 export default favoritesSlice.reducer;

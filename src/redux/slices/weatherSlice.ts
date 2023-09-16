@@ -48,7 +48,7 @@ export const getWeather = (city: string) => async (dispatch: AppDispatch) => {
   } catch (e) {
     messageHandler({
       type: "error",
-      message: "An error has occurred",
+      message: "Ciudad no encontrada",
     });
   }
 };

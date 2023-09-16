@@ -3,6 +3,7 @@ import { useFavorites } from "../../hooks/useFavorites";
 import { useWeather } from "../../hooks/useWeather";
 import moment from "moment";
 import styles from "./styles.module.less";
+import { capitalizeString } from "../../utlis/capitalizeString";
 
 export const CurrentWeather = () => {
   const { data, city, selectedTime } = useWeather();
@@ -40,9 +41,9 @@ export const CurrentWeather = () => {
                 <h4>{selectedTime.condition.text}</h4>
               </div>
               <div className={styles.extraInfo}>
-                <p>Precipitation: {selectedTime.precip_mm} mm</p>
-                <p>Humidity: {selectedTime.humidity}%</p>
-                <p>Wind: {selectedTime.wind_kph} km/h</p>
+                <p>Precipitaciones: {selectedTime.precip_mm} mm</p>
+                <p>Humedad: {selectedTime.humidity}%</p>
+                <p>Viento: {selectedTime.wind_kph} km/h</p>
               </div>
             </div>
           </div>
@@ -51,10 +52,19 @@ export const CurrentWeather = () => {
               <h3>
                 {data.location.name}, {data.location.country}
               </h3>
-              <h4>{selectedTime.time ? moment(selectedTime.time).calendar() : moment(data.location.localtime).calendar()}</h4>
+              <h4>
+                {selectedTime.time
+                  ? capitalizeString(moment(selectedTime.time).calendar())
+                  : capitalizeString(
+                      moment(data.location.localtime).calendar()
+                    )}
+              </h4>
             </div>
-            <button onClick={handleFavoriteButton} className={styles.favoriteButton}>
-              {favorite ? "Remove from favorites" : "Add to favorites"}
+            <button
+              onClick={handleFavoriteButton}
+              className={styles.favoriteButton}
+            >
+              {favorite ? "Quitar de favoritos" : "Agregar a favoritos"}
             </button>
           </div>
         </div>

@@ -13,6 +13,10 @@ import { SuscriptionModal } from "./components/suscriptionModal/SuscriptionModal
 import "./App.less";
 import { weatherBackgrounds } from "./weatherBackground";
 import { SunnyDay } from "./assets/background";
+import moment from 'moment'
+import 'moment/dist/locale/es';
+moment.locale('es')
+
 
 export const App = () => {
   // const { mode: theme } = useSelector((state: RootState) => state.theme);

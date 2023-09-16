@@ -17,7 +17,7 @@ export const SingleHour = ({hour, index, selected, onClick}: Props) => {
       selected === index ? styles.selected : styles.unselected
     }`}
   >
-    <p>{index === 0 ? "Now" : moment(hour.time).format("HH")}</p>
+    <p>{index === 0 ? "Ahora" : moment(hour.time).format("HH")}</p>
     <img src={hour.condition.icon} alt={hour.condition.text} />
     <p>{Math.round(hour.temp_c)}°C</p>
   </div>  )
