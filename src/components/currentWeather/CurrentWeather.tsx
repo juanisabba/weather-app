@@ -51,7 +51,7 @@ export const CurrentWeather = () => {
               <h3>
                 {data.location.name}, {data.location.country}
               </h3>
-              <h4>{moment(selectedTime.time).calendar()}</h4>
+              <h4>{selectedTime.time ? moment(selectedTime.time).calendar() : moment(data.location.localtime).calendar()}</h4>
             </div>
             <button onClick={handleFavoriteButton} className={styles.favoriteButton}>
               {favorite ? "Remove from favorites" : "Add to favorites"}

@@ -9,7 +9,9 @@ export const Header = ({onClick}: Props) => {
   return (
     <div className={styles.headerContainer}>
         <Searcher/>
-        <p onClick={onClick}>Mis Favoritos</p>
+        <div className={styles.iconsContainer}>
+        <button className={styles.buttonFavorite} onClick={onClick}>Mis Favoritos</button>
+        </div>
     </div>
   )
 }
