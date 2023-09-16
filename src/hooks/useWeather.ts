@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { getWeather, setCity, setSelectedTime } from "../redux/slices/weatherSlice";
+import { addRequest, getWeather, setCity, setSelectedTime } from "../redux/slices/weatherSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import { Hour } from "../interfaces/weather.interface";
 
 export const useWeather = () => {
   const dispatch: AppDispatch = useDispatch();
-  const { data, city, selectedTime} = useSelector(
+  const { data, city, selectedTime, requests} = useSelector(
     (state: RootState) => state.weather
   );
   const [isLoading, setIsLoading] = useState(true);
@@ -24,6 +24,7 @@ export const useWeather = () => {
 
   const fetchCity = (city: string) => {
     dispatch(setCity(city));
+    dispatch(addRequest())
   }
 
   const changeTime = (time: Hour) => {
@@ -36,5 +37,5 @@ export const useWeather = () => {
     // eslint-disable-next-line
   }, [city]);
 
-  return { data, city, selectedTime, isLoading, fetchCity, changeTime };
+  return { data, city, selectedTime, requests, isLoading, fetchCity, changeTime };
 };

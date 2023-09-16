@@ -8,11 +8,13 @@ interface InitalStateProps {
   data: IWeather | null;
   city: string;
   selectedTime: Hour | null;
+  requests: number;
 }
 const initialState: InitalStateProps = {
   data: null,
   city: "Madrid",
   selectedTime: null,
+  requests: 1,
 };
 
 const weatherSlice = createSlice({
@@ -28,10 +30,13 @@ const weatherSlice = createSlice({
     setSelectedTime: (state, { payload }) => {
       state.selectedTime = payload;
     },
+    addRequest: (state) => {
+      state.requests += 1
+    },
   },
 });
 
-export const { setWeather, setCity, setSelectedTime } = weatherSlice.actions;
+export const { setWeather, setCity, setSelectedTime, addRequest } = weatherSlice.actions;
 
 export const getWeather = (city: string) => async (dispatch: AppDispatch) => {
   try {

@@ -4,8 +4,12 @@
   box-sizing: border-box;
 }
 
-p, h2, h3, h4, div{
+p, h2, h3, h4, div, button{
   color: #fff
+}
+
+button{
+  cursor: pointer
 }
 
 /* Style the scrollbar track */

@@ -10,10 +10,11 @@ import { useWeather } from "./hooks/useWeather";
 import { ToastContainer } from "react-toastify";
 import { SunnyDay } from "./assets/background";
 import "./App.less";
+import { SuscriptionModal } from "./components/suscriptionModal/SuscriptionModal";
 
 export const App = () => {
   // const { mode: theme } = useSelector((state: RootState) => state.theme);
-  const { isLoading } = useWeather();
+  const { requests, isLoading } = useWeather();
 
   return (
     <div className="app" style={{ backgroundImage: `url("${SunnyDay}")` }}>
@@ -33,6 +34,8 @@ export const App = () => {
             </div>
             {/* <FavoritesList /> */}
           </div>
+          <p>Peticiones gratuitas: {requests} / 5</p>
+          {requests >= 5 && <SuscriptionModal />}
         </>
       )}
     </div>
