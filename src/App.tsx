@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Header } from "./components/header/Header";
 import { FavoritesList } from "./components/favorites/FavoritesList";
 import { CurrentWeather } from "./components/currentWeather/CurrentWeather";
@@ -8,32 +9,42 @@ import { CircularSpinner } from "./components/spinner/CircularSpinner";
 // import { useSelector } from "react-redux";
 import { useWeather } from "./hooks/useWeather";
 import { ToastContainer } from "react-toastify";
-import { SunnyDay } from "./assets/background";
 import { SuscriptionModal } from "./components/suscriptionModal/SuscriptionModal";
 import "./App.less";
-import { useState } from "react";
+import { weatherBackgrounds } from "./weatherBackground";
+import { SunnyDay } from "./assets/background";
 
 export const App = () => {
   // const { mode: theme } = useSelector((state: RootState) => state.theme);
-  const { requests, isLoading } = useWeather();
+  const { requests, isLoading, selectedTime, data } = useWeather();
   const [openFavorites, setOpenFavorites] = useState(false);
 
   const handleFavoriteList = () => {
-    if(openFavorites)
-    setOpenFavorites(false);
+    if (openFavorites) setOpenFavorites(false);
   };
-  
+
+  const backgorundWeather = selectedTime
+    ? weatherBackgrounds[selectedTime?.condition.text]
+    : data
+    ? weatherBackgrounds[data?.current.condition.text]
+    : SunnyDay;
 
   return (
-    <div className="app" style={{ backgroundImage: `url("${SunnyDay}")` }}>
+    <div
+      className="app"
+      style={{ backgroundImage: `url("${backgorundWeather}")` }}
+    >
       {isLoading ? (
         <CircularSpinner />
       ) : (
         <>
           <ToastContainer />
-          <FavoritesList visible={openFavorites} closeMenu={()=>setOpenFavorites(false)}/>
+          <FavoritesList
+            visible={openFavorites}
+            closeMenu={() => setOpenFavorites(false)}
+          />
           <div onClick={handleFavoriteList}>
-            <Header onClick={()=>setOpenFavorites(true)} />
+            <Header onClick={() => setOpenFavorites(true)} />
             <div className="app-body">
               <div>
                 <CurrentWeather />
@@ -47,7 +58,7 @@ export const App = () => {
               <b>Peticiones gratuitas: {requests} / 5</b>
             </p>
           </div>
-          {requests >= 5 && <SuscriptionModal />}
+          {requests > 5 && <SuscriptionModal />}
         </>
       )}
     </div>

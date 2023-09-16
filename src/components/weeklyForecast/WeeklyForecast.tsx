@@ -11,7 +11,7 @@ export const WeeklyForecast = () => {
           <h2 className={styles.title}>Weekly Forecast</h2>
           {data.forecast.forecastday.map(({ date, day }, index: number) => (
             <div key={index} className={styles.day}>
-              <h3>{moment(date).format("dddd")}</h3>
+              <h3>{index === 0 ? "Today" : moment(date).format("dddd")}</h3>
               <img src={day.condition.icon} alt={day.condition.text} />
               <div>
                 <p>Min: {Math.round(day.mintemp_c)}°C</p>

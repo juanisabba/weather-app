@@ -40,7 +40,7 @@ export const CurrentWeather = () => {
                 <h4>{selectedTime.condition.text}</h4>
               </div>
               <div className={styles.extraInfo}>
-                <p>Precipitation: {selectedTime.chance_of_rain}%</p>
+                <p>Precipitation: {selectedTime.precip_mm} mm</p>
                 <p>Humidity: {selectedTime.humidity}%</p>
                 <p>Wind: {selectedTime.wind_kph} km/h</p>
               </div>
