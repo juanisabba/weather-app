@@ -18,7 +18,7 @@ export const weatherBackgrounds: Props = {
   "Clear": ClearNight,
   "Partly cloudy": PartlyCloudyDay,
   "Cloudy": CloudyDay,
-  "Overcast": RainyDay,
+  "Overcast": CloudyDay,
   "Mist": Mist,
   "Patchy rain possible": RainyDay,
   "Patchy snow possible": Snow,
