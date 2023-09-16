@@ -43,7 +43,7 @@ export const App = () => {
             visible={openFavorites}
             closeMenu={() => setOpenFavorites(false)}
           />
-          <div onClick={handleFavoriteList}>
+          <div className="app-container" onClick={handleFavoriteList}>
             <Header onClick={() => setOpenFavorites(true)} />
             <div className="app-body">
               <div className="body-info">
@@ -55,7 +55,7 @@ export const App = () => {
               </div>
             </div>
             <p className="footer">
-              <b>Peticiones gratuitas: {requests} / 5</b>
+              Peticiones gratuitas: {requests} / 5
             </p>
           </div>
           {requests > 5 && <SuscriptionModal />}

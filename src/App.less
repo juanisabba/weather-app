@@ -6,23 +6,30 @@
   background-position: bottom;
   user-select: none;
   font-family: "Be Vietnam Pro", sans-serif;
-  .app-body {
+  .app-container {
+    min-height: 100vh;
     display: flex;
-    justify-content: space-evenly;
-    align-items: flex-end;
-    .body-info {
-      max-width: 500px;
+    flex-direction: column;
+    justify-content: space-between;
+    .app-body {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      .body-info {
+        max-width: 500px;
+        width: 100%;
+      }
+      .body-forecast {
+        max-width: 500px;
+        width: 100%;
+      }
     }
-    .body-forecast {
-      max-width: 500px;
+    .footer {
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
     }
-  }
-  .footer {
-    position: relative;
-    text-align: center;
-    margin-top: 20px;
-    padding: 5px;
-    backdrop-filter: blur(30px);
   }
 }
 
