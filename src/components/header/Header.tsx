@@ -1,5 +1,6 @@
 import { useTheme } from '../../hooks/useTheme';
-import { Searcher } from './Searcher'
+import { Searcher } from './Searcher';
+import {SunIcon, MoonIcon} from "../../assets/icons"
 import styles from './styles.module.less'
 
 interface Props {
@@ -12,7 +13,9 @@ export const Header = ({onClick}: Props) => {
     <div className={`${styles.headerContainer} ${styles[theme]}`}>
         <Searcher/>
         <div className={styles.iconsContainer}>
-        <button onClick={toggle}>Theme</button>
+        <button onClick={toggle} className={styles.themeContainer}>
+          <img src={theme === 'light' ? MoonIcon : SunIcon} alt="Change Theme Icon" />
+        </button>
         <button className={styles.buttonFavorite} onClick={onClick}>Mis Favoritos</button>
         </div>
     </div>

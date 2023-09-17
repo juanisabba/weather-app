@@ -1,16 +1,16 @@
-@light-text-color: rgba(0, 0, 0, 0.8);;
+@light-text-color: rgba(0, 0, 0, 0.8);
 @light-background-color: rgba(255, 255, 255, 0.3);
 @dark-text-color: rgba(255, 255, 255, 0.8);
 @dark-background-color: rgba(0, 0, 0, 0.3);
 
 .light {
-  .buttonFavorite{
+  .buttonFavorite {
     background-color: @light-background-color;
   }
-  form{
+  form {
     background-color: @light-background-color;
-    input::placeholder{
-      color: @light-text-color
+    input::placeholder {
+      color: @light-text-color;
     }
   }
 }
@@ -19,10 +19,10 @@
   .buttonFavorite {
     background-color: @dark-background-color;
   }
-  form{
+  form {
     background-color: @dark-background-color;
-    input::placeholder{
-      color: @dark-text-color
+    input::placeholder {
+      color: @dark-text-color;
     }
   }
 }
@@ -40,26 +40,65 @@
       align-items: center;
       border-radius: 15px;
       padding: 0 10px;
-      input{
-          background-color: transparent;
-          border: none;
-          outline: none;
-          margin-left: 8px;
-          width: 300px;
-          padding: 7px 2px;
-        }
+      input {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        margin-left: 8px;
+        width: 300px;
+        padding: 7px 2px;
+      }
     }
-  }  
-  .iconsContainer{
+  }
+  .iconsContainer {
     display: flex;
-    align-items: center;
     position: absolute;
-    right: 100px;
-    margin-top: 5px;
-    .buttonFavorite{
-      padding: 8px 15px;
+    right: 4%;
+    button {
       border: none;
       border-radius: 3px;
+    }
+    .themeContainer {
+      img {
+        height: 25px;
+      }
+    }
+    .buttonFavorite {
+      font-size: 14px;
+      padding: 8px 15px;
+      margin-left: 10px;
+    }
+  }
+}
+
+@media (max-width: 1080px) {
+  .headerContainer {
+    padding: 20px;
+    justify-content: space-evenly;
+    .iconsContainer {
+      position: relative;
+      right: inherit;
+    }
+    .searcherContainer {
+      form {
+        input {
+          width: 160px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 530px) {
+  .headerContainer {
+    padding: 20px 0 20px 0;
+    justify-content: space-between;
+    .searcherContainer {
+      form {
+        input {
+          width: 100px;
+        }
+      }
     }
   }
 }

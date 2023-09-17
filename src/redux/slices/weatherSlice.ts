@@ -50,6 +50,7 @@ export const getWeather = (city: string) => async (dispatch: AppDispatch) => {
       type: "error",
       message: "Ciudad no encontrada",
     });
+    return
   }
 };
 

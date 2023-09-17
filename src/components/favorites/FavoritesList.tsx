@@ -30,7 +30,7 @@ export const FavoritesList = ({visible, closeMenu}: Props) => {
         favorites.map((city, index: number) => (
           <div className={styles.cityContainer} key={index}>
             <p onClick={()=>changeCity(city)} className={styles.city}>{city}</p>
-            <button onClick={() => handleFavorite(city)}>x</button>
+            <button className={styles.removeCity} onClick={() => handleFavorite(city)}>x</button>
           </div>
         ))
       )}
