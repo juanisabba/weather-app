@@ -1,5 +1,5 @@
-import {CheckIcon, CrossIcon} from "../../assets/icons"
 import { ISuscriptionPlan } from "../../interfaces/suscription-plans.interface";
+import { CheckIcon, CrossIcon } from "../../assets/icons";
 import styles from "./styles.module.less";
 
 interface Props {
@@ -20,12 +20,12 @@ export const SuscriptionPlan = ({ title, price, benefits, color }: Props) => {
         <div className={styles.info} style={{ backgroundColor: color }}>
           {benefits.map(({ id, included, name }) => (
             <div key={id} className={styles.infoItem}>
-                <img src={included ? CheckIcon : CrossIcon} alt="" />
+              <img src={included ? CheckIcon : CrossIcon} alt="" />
               <p>{name}</p>
             </div>
           ))}
         </div>
-        <button style={{backgroundColor: color}}>Suscribirse</button>
+        <button style={{ backgroundColor: color }}>Suscribirse</button>
       </div>
     </div>
   );

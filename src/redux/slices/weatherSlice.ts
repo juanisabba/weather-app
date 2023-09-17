@@ -1,8 +1,12 @@
 import { AppDispatch } from "../store";
-import { Hour, IWeather, IWeatherResponse } from "../../interfaces/weather.interface";
+import { messageHandler } from "../../utlis/messageHandler";
+import {
+  Hour,
+  IWeather,
+  IWeatherResponse,
+} from "../../interfaces/weather.interface";
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { messageHandler } from "../../utlis/messageHandler";
 
 interface InitalStateProps {
   data: IWeather | null;
@@ -31,18 +35,20 @@ const weatherSlice = createSlice({
       state.selectedTime = payload;
     },
     addRequest: (state) => {
-      state.requests += 1
+      state.requests += 1;
     },
   },
 });
 
-export const { setWeather, setCity, setSelectedTime, addRequest } = weatherSlice.actions;
+export const { setWeather, setCity, setSelectedTime, addRequest } =
+  weatherSlice.actions;
 
 export const getWeather = (city: string) => async (dispatch: AppDispatch) => {
+  const url =  `${import.meta.env.VITE_API_URL}/v1/forecast.json?key=${import.meta.env.VITE_API_KEY}&q=${city}&days=7&aqi=no&alerts=no`
   try {
     const response: IWeatherResponse = await axios({
       method: "GET",
-      url: `http://api.weatherapi.com/v1/forecast.json?key=bea0b1ebed9b4426a2333128230908&q=${city}&days=7&aqi=no&alerts=no`,
+      url,
     });
     dispatch(setWeather(response.data));
   } catch (e) {
@@ -50,7 +56,7 @@ export const getWeather = (city: string) => async (dispatch: AppDispatch) => {
       type: "error",
       message: "Ciudad no encontrada",
     });
-    return
+    return;
   }
 };
 

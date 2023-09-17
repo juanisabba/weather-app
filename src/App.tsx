@@ -1,31 +1,36 @@
 import { useState } from "react";
+
 import { Header } from "./components/header/Header";
 import { FavoritesList } from "./components/favorites/FavoritesList";
+import { CircularSpinner } from "./components/spinner/CircularSpinner";
 import { CurrentWeather } from "./components/currentWeather/CurrentWeather";
 import { DailyForecast } from "./components/dailyForecast/DailyForecast";
 import { WeeklyForecast } from "./components/weeklyForecast/WeeklyForecast";
-import { CircularSpinner } from "./components/spinner/CircularSpinner";
-import { useWeather } from "./hooks/useWeather";
-import { ToastContainer } from "react-toastify";
 import { SuscriptionModal } from "./components/suscriptionModal/SuscriptionModal";
+
+import { useTheme } from "./hooks/useTheme";
+import { useWeather } from "./hooks/useWeather";
 import { weatherBackgrounds } from "./weatherBackground";
 import { SunnyDay } from "./assets/background";
+
+import { ToastContainer } from "react-toastify";
 import moment from "moment";
-import "moment/dist/locale/es";
-import { useTheme } from "./hooks/useTheme";
+
 import styles from "./App.module.less";
 
+import "moment/dist/locale/es";
 moment.locale("es");
 
 export const App = () => {
-  const { requests, isLoading, selectedTime, data } = useWeather();
   const [openFavorites, setOpenFavorites] = useState(false);
+  const { requests, isLoading, selectedTime, data } = useWeather();
   const { theme } = useTheme();
 
   const handleFavoriteList = () => {
     if (openFavorites) setOpenFavorites(false);
   };
 
+  // Change the background depending on the weather
   const backgorundWeather = selectedTime
     ? weatherBackgrounds[selectedTime?.condition.text]
     : data
@@ -59,7 +64,9 @@ export const App = () => {
                 <WeeklyForecast />
               </div>
             </div>
-            <p className={styles.footer}>Peticiones gratuitas: {requests} / 5</p>
+            <p className={styles.footer}>
+              Peticiones gratuitas: {requests} / 5
+            </p>
           </div>
           {requests > 5 && <SuscriptionModal />}
         </>

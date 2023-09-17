@@ -4,11 +4,11 @@ import { addFavorite, removeFavorite } from "../redux/slices/favoritesSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export const useFavorites = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch: AppDispatch = useDispatch();
   const { data: favorites } = useSelector(
     (state: RootState) => state.favorites
   );
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleFavorite = (city: string) => {
     setIsLoading(true);

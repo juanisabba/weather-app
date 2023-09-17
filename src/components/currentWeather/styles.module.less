@@ -17,14 +17,13 @@
 .currentWeatherContainer {
   padding: 10px 15px;
   border-radius: 20px;
-  color: #fff;
+  color: @dark-text-color;
   margin-bottom: 15px;
   .weather {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
   }
-
   .temperature {
     display: flex;
     align-items: flex-start;
@@ -45,11 +44,10 @@
         margin-left: -10px;
         width: 60px;
       }
-      h4{
+      h4 {
         color: @dark-text-color;
       }
     }
-
     .extraInfo {
       p {
         padding: 2px 0;
@@ -58,7 +56,6 @@
       }
     }
   }
-
   .locationInfo {
     display: flex;
     margin-top: 20px;

@@ -8,19 +8,26 @@ interface Props {
   closeMenu: () => void;
 }
 
-export const FavoritesList = ({visible, closeMenu}: Props) => {
+export const FavoritesList = ({ visible, closeMenu }: Props) => {
   const { favorites, handleFavorite } = useFavorites();
   const { theme } = useTheme();
   const { fetchCity } = useWeather();
 
+  // Get weather at selected city
   const changeCity = (city: string) => {
     fetchCity(city);
     closeMenu();
-  }
+  };
 
   return (
-    <div className={`${styles.favoritesContainer} ${visible && styles.favoriteVisible} ${styles[theme]}`}>
-      <button className={styles.close} onClick={closeMenu}>x</button>
+    <div
+      className={`${styles.favoritesContainer} ${
+        visible && styles.favoriteVisible
+      } ${styles[theme]}`}
+    >
+      <button className={styles.close} onClick={closeMenu}>
+        x
+      </button>
       <h2 className={styles.title}>Mis ciudades favoritas</h2>
       {favorites.length === 0 ? (
         <div className={styles.noFavorites}>
@@ -29,8 +36,15 @@ export const FavoritesList = ({visible, closeMenu}: Props) => {
       ) : (
         favorites.map((city, index: number) => (
           <div className={styles.cityContainer} key={index}>
-            <p onClick={()=>changeCity(city)} className={styles.city}>{city}</p>
-            <button className={styles.removeCity} onClick={() => handleFavorite(city)}>x</button>
+            <p onClick={() => changeCity(city)} className={styles.city}>
+              {city}
+            </p>
+            <button
+              className={styles.removeCity}
+              onClick={() => handleFavorite(city)}
+            >
+              x
+            </button>
           </div>
         ))
       )}

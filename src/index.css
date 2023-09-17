@@ -13,24 +13,20 @@ button{
   height: 12px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #b2aeae; 
-  border-radius: 6px;}
-
 ::-webkit-scrollbar-track {
-  background: #504f4f; 
+  background: transparent; 
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
 
+::-webkit-scrollbar-thumb {
+  background: #917373; 
+  border-radius: 6px;}
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #888;
+  background: #695454; 
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: #737272; 
-}
-
-::-webkit-scrollbar-corner {
-  background: #ddd; 
+  background: rgb(77, 73, 73); 
 }

@@ -1,14 +1,15 @@
 import { useState, FormEvent } from "react";
 import { useWeather } from "../../hooks/useWeather";
 import { SearchIcon } from "../../assets/icons";
-import styles from "./styles.module.less";
 import { useTheme } from "../../hooks/useTheme";
+import styles from "./styles.module.less";
 
 export const Searcher = () => {
-  const { fetchCity } = useWeather();
-  const {theme} = useTheme()
   const [newCity, setNewCity] = useState("");
+  const { fetchCity } = useWeather();
+  const { theme } = useTheme();
 
+  //Search city
   const handleNewCity = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     fetchCity(newCity);

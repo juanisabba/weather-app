@@ -1,6 +1,7 @@
 @primary-color: #fff;
 @secondary-color: #000;
 @backgorund-color: #4e4141;
+@shadow-color: rgba(0, 0, 0, 0.4);
 
 .modalContainer {
   top: 0;
@@ -22,7 +23,6 @@
     h2 {
       color: @primary-color;
       padding-bottom: 20px;
-
     }
   }
 
@@ -30,6 +30,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    overflow-x: scroll;
   }
 
   .card {
@@ -37,7 +38,7 @@
     padding: 15px;
     width: 290px;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 10px @shadow-color;
     .cardTitle {
       font-size: 30px;
       font-weight: 100;

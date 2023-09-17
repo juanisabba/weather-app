@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 import { useFavorites } from "../../hooks/useFavorites";
 import { useWeather } from "../../hooks/useWeather";
+import { useTheme } from "../../hooks/useTheme";
+import { capitalizeString } from "../../utlis/capitalizeString";
 import moment from "moment";
 import styles from "./styles.module.less";
-import { capitalizeString } from "../../utlis/capitalizeString";
-import { useTheme } from "../../hooks/useTheme";
 
 export const CurrentWeather = () => {
+  const [favorite, setFavorite] = useState(false);
   const { data, city, selectedTime } = useWeather();
   const { getFavoriteStatus, handleFavorite } = useFavorites();
-  const {theme} = useTheme()
-  const [favorite, setFavorite] = useState(false);
+  const { theme } = useTheme();
 
+  // Check if the city is in favorites
   useEffect(() => {
     if (data?.location.name) {
       setFavorite(getFavoriteStatus(data.location.name));
     }
     //eslint-disable-next-line
-  }, [handleFavorite, city, getFavoriteStatus]);
+  }, [handleFavorite, city]);
 
   const handleFavoriteButton = () => {
     if (data?.location.name) {

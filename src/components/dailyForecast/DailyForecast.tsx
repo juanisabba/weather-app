@@ -1,16 +1,17 @@
-import { useWeather } from "../../hooks/useWeather";
-import moment from "moment";
 import { useState } from "react";
-import { Hour } from "../../interfaces/weather.interface";
 import { SingleHour } from "./SingleHour";
-import styles from "./styles.module.less";
+import { useWeather } from "../../hooks/useWeather";
 import { useTheme } from "../../hooks/useTheme";
+import { Hour } from "../../interfaces/weather.interface";
+import moment from "moment";
+import styles from "./styles.module.less";
 
 export const DailyForecast = () => {
+  const [selected, setSelected] = useState(0);
   const { data, changeTime } = useWeather();
   const {theme} = useTheme()
-  const [selected, setSelected] = useState(0);
 
+  // select a new time to display
   const selectNewTime = (data: Hour, index: number) => {
     setSelected(index);
     changeTime(data);

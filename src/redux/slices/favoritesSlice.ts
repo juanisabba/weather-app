@@ -1,6 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
 import { AppDispatch } from "../store";
 import { messageHandler } from "../../utlis/messageHandler";
+import { createSlice } from "@reduxjs/toolkit";
 
 interface InitalStateProps {
   data: string[];
@@ -53,7 +53,7 @@ export const removeFavorite =
         type: "error",
         message: "Ha ocurrido un error",
       });
-      }
+    }
   };
 
 export default favoritesSlice.reducer;
