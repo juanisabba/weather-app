@@ -1,27 +1,17 @@
-# React + TypeScript + Vite
+# Weather App React + Typescript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación de clima utilizando la API de https://www.weatherapi.com/ con las opciones de buscar ciudades, ver el pronóstico detallado de las próximas 24hs, ver el pronóstico de la semana, cambiar el tema de la aplicación (claro u oscuro) y agregar ciudades a una lista de favoritos. Se pueden realizar 5 peticiones de forma gratuita, después de eso se abrirá un modal para continuar con una suscripción. 
 
-Currently, two official plugins are available:
+## Características principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Aplicación del clima desarrollada en React + Typescript + Vite.
+- Fondo cambiante dependiendo el clima en el horario seleccionado.
+- Utilización de Less para el diseño.
+- Gestión del estado de la aplicación con Redux Toolkit.
+- Uso de otras librerías como axios, moment y react-toastify.
 
-## Expanding the ESLint configuration
+## Instalación y Uso
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clona este repositorio.
+2. Instala las dependencias ejecutando `npm install`.
+4. Para iniciar la aplicación, ejecuta `npm run dev`. Se levantará en el puerto 5173.
