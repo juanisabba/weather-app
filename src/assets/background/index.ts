@@ -1,0 +1,9 @@
+export { default as SunnyDay } from "./sunny.png";
+export { default as ClearNight } from "./clear.png";
+export { default as CloudyDay } from "./cloudy.png";
+export { default as PartlyCloudyDay } from "./partly-cloudy-2.jpg";
+export { default as PartlyCloudyNight } from "./partly-cloudy-night.jpeg";
+export { default as RainyDay } from "./rainy.png";
+export { default as Mist } from "./mist.jpg";
+export { default as Snow } from "./snow.jpg";
+export { default as StormyDay } from "./storm.png";

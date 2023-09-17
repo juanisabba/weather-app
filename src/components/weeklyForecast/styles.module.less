@@ -1,0 +1,47 @@
+@light-text-color: #000;
+@light-background-color: rgba(255, 255, 255, 0.6);
+@dark-text-color: #fff;
+@dark-background-color: rgba(0, 0, 0, 0.6);
+
+.light {
+  background-color: @light-background-color;
+  .title {
+    border-bottom-color: @light-text-color;
+  }
+}
+
+.dark {
+  background-color: @dark-background-color;
+  .title {
+    border-bottom-color: @dark-text-color;
+  }
+}
+
+.weeklyForecastContainer {
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  padding-bottom: 10px;
+  max-height: 60vh;
+  overflow-y: scroll;
+  .title {
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+
+  .day {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+    h3 {
+      text-transform: capitalize;
+      width: 100px;
+    }
+    img {
+      width: 50px;
+    }
+  }
+}

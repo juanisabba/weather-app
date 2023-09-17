@@ -1,0 +1,123 @@
+@light-text-color: rgba(0, 0, 0, 0.8);
+@light-background-color: rgba(255, 255, 255, 0.3);
+@dark-text-color: rgba(255, 255, 255, 0.8);
+@dark-background-color: rgba(0, 0, 0, 0.3);
+@dark-tooltip-color: rgba(0, 0, 0, 0.6);
+
+.light {
+  .buttonFavorite {
+    background-color: @light-background-color;
+  }
+  form {
+    background-color: @light-background-color;
+    input::placeholder {
+      color: @light-text-color;
+    }
+  }
+}
+
+.dark {
+  .buttonFavorite {
+    background-color: @dark-background-color;
+  }
+  form {
+    background-color: @dark-background-color;
+    input::placeholder {
+      color: @dark-text-color;
+    }
+  }
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  .searcherContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    form {
+      display: flex;
+      align-items: center;
+      border-radius: 15px;
+      padding: 0 10px;
+      input {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        margin-left: 8px;
+        width: 300px;
+        padding: 7px 2px;
+      }
+    }
+  }
+  .iconsContainer {
+    display: flex;
+    position: absolute;
+    right: 4%;
+    button {
+      border: none;
+      border-radius: 3px;
+    }
+    .themeContainer {
+      img {
+        height: 25px;
+      }
+      .tooltipText {
+        visibility: hidden;
+        background-color: @dark-tooltip-color;
+        color: @dark-text-color;
+        text-align: center;
+        padding: 5px;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        margin-top: 35px;
+        margin-left: -60px;
+      }
+    }
+    :hover > .tooltipText{
+      visibility: visible;
+    }
+    .buttonFavorite {
+      font-size: 14px;
+      padding: 8px 15px;
+      margin-left: 10px;
+    }
+  }
+  .notFound {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .headerContainer {
+    padding: 20px;
+    justify-content: space-evenly;
+    .iconsContainer {
+      position: relative;
+      right: inherit;
+    }
+    .searcherContainer {
+      form {
+        input {
+          width: 160px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 530px) {
+  .headerContainer {
+    padding: 20px 0 20px 0;
+    justify-content: space-between;
+    .searcherContainer {
+      form {
+        input {
+          width: 100px;
+        }
+      }
+    }
+  }
+}

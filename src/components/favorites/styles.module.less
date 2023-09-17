@@ -1,0 +1,97 @@
+@light-text-color: #000;
+@light-background-color: rgb(219, 186, 186);
+@light-border-color: rgba(0, 0, 0, 0.3);
+
+@dark-text-color: #fff;
+@dark-background-color: rgb(63, 54, 54);
+@dark-border-color: rgba(255, 2555, 255, 0.3);
+
+.light {
+  background-color: @light-background-color;
+  .close {
+    background-color: @dark-background-color;
+    color: @dark-text-color;
+  }
+  .cityContainer {
+    border-bottom: 1px solid @light-border-color;
+    .removeCity {
+      background-color: @dark-background-color;
+      color: @dark-text-color;
+    }
+  }
+}
+
+.dark {
+  background-color: @dark-background-color;
+  .close {
+    background-color: @light-background-color;
+    color: @light-text-color;
+  }
+  .cityContainer {
+    border-bottom: 1px solid @dark-border-color;
+    .removeCity {
+      background-color: @light-background-color;
+      color: @light-text-color;
+    }
+  }
+}
+
+.favoritesContainer {
+  position: fixed;
+  height: 100%;
+  width: 400px;
+  top: 0;
+  right: -400px;
+  z-index: 100;
+  padding: 40px;
+  transition: right 0.5s;
+  .title {
+    border-bottom: 1px solid;
+    padding-bottom: 15px;
+  }
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    font-size: 15px;
+  }
+  .noFavorites {
+    margin-top: 30px;
+  }
+  .cityContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+    .city:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    button {
+      border: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      font-size: 15px;
+    }
+  }
+}
+
+.favoriteVisible {
+  right: 0;
+}
+
+@media (max-width: 530px) {
+  .favoritesContainer {
+    width: 100%;
+    right: 0;
+    display: none;
+  }
+  .favoriteVisible {
+    display: block;
+  }
+}

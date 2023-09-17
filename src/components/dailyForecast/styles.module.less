@@ -1,0 +1,39 @@
+@light-text-color: #000;
+@light-background-color: rgba(255, 255, 255, 0.6);
+@dark-text-color: #fff;
+@dark-background-color: rgba(0, 0, 0, 0.6);
+
+.light {
+  background-color: @light-background-color;
+  .selected {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  .unselected:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.dark {
+  background-color: @dark-background-color;
+  .selected {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .unselected:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.dailyForecastContainer {
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  display: flex;
+  overflow-x: scroll;
+  cursor: pointer;
+  .hoursList {
+    padding: 10px 15px;
+    text-align: center;
+    img {
+      width: 55px;
+    }
+  }
+}
