@@ -44,7 +44,7 @@ export const { setWeather, setCity, setSelectedTime, addRequest } =
 
 export const getWeather =
   (city: string, setNotFound: (value: boolean) => void) => async (dispatch: AppDispatch) => {
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=bea0b1ebed9b4426a2333128230908&q=${city}&days=7&aqi=no&alerts=no`;
+    const url = `${import.meta.env.VITE_API_URL}/v1/forecast.json?key=${import.meta.env.VITE_API_KEY}&q=${city}&days=7&aqi=no&alerts=no`;
     try {
       const response: IWeatherResponse = await axios({
         method: "GET",
