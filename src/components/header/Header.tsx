@@ -23,6 +23,7 @@ export const Header = ({ onClick }: Props) => {
             src={theme === "light" ? MoonIcon : SunIcon}
             alt="Change Theme Icon"
           />
+           <span className={styles.tooltipText}>Cambiar tema</span>
         </button>
         <button className={styles.buttonFavorite} onClick={onClick}>
           Mis Favoritos
