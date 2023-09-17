@@ -11,7 +11,6 @@ import { SuscriptionModal } from "./components/suscriptionModal/SuscriptionModal
 import { useTheme } from "./hooks/useTheme";
 import { useWeather } from "./hooks/useWeather";
 import { weatherBackgrounds } from "./weatherBackground";
-import { SunnyDay } from "./assets/background";
 
 import { ToastContainer } from "react-toastify";
 import moment from "moment";
@@ -30,13 +29,12 @@ export const App = () => {
     if (openFavorites) setOpenFavorites(false);
   };
 
-  // Change the background depending on the weather
-  const backgorundWeather = selectedTime
-    ? weatherBackgrounds[selectedTime?.condition.text]
-    : data
-    ? weatherBackgrounds[data?.current.condition.text]
-    : SunnyDay;
+  const timeOfDay = selectedTime?.is_day === 0 ? "night" : selectedTime?.is_day === 1 ? "day" : null;
 
+  // Change the background depending on the weather
+  const backgorundWeather = timeOfDay && selectedTime
+    ? weatherBackgrounds[timeOfDay][selectedTime?.condition.text]
+    : timeOfDay && data && weatherBackgrounds[timeOfDay][data?.current.condition.text];
   return (
     <div
       className={`${styles.appContainer} ${styles[theme]}`}

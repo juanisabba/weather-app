@@ -1,6 +1,6 @@
 import { useState, FormEvent } from "react";
 import { useWeather } from "../../hooks/useWeather";
-import { SearchIcon } from "../../assets/icons";
+import { SearchIcon, SearchWhiteIcon } from "../../assets/icons";
 import { useTheme } from "../../hooks/useTheme";
 import styles from "./styles.module.less";
 
@@ -18,7 +18,7 @@ export const Searcher = () => {
   return (
     <div className={`${styles.searcherContainer} ${styles[theme]}`}>
       <form onSubmit={handleNewCity}>
-        <img src={SearchIcon} alt="Search" />
+        <img src={theme === "light" ? SearchIcon : SearchWhiteIcon} alt="Search" />
         <input
           type="text"
           placeholder="Buscar ciudad"

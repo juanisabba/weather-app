@@ -28,25 +28,53 @@ export const CurrentWeather = () => {
 
   return (
     <>
-      {data && selectedTime && (
+      {data && (
         <div className={`${styles.currentWeatherContainer} ${styles[theme]}`}>
           <div className={styles.weather}>
             <h2 className={styles.temperature}>
-              {Math.round(selectedTime.temp_c)}
+              {Math.round(
+                selectedTime ? selectedTime.temp_c : data.current.temp_c
+              )}
               <span>°C</span>
             </h2>
             <div className={styles.conditionContainer}>
               <div className={styles.condition}>
                 <img
-                  src={selectedTime.condition.icon}
-                  alt={selectedTime.condition.text}
+                  src={
+                    selectedTime
+                      ? selectedTime.condition.icon
+                      : data.current.condition.icon
+                  }
+                  alt={
+                    selectedTime
+                      ? selectedTime.condition.text
+                      : data.current.condition.text
+                  }
                 />
-                <h4>{selectedTime.condition.text}</h4>
+                <h4>
+                  {selectedTime
+                    ? selectedTime.condition.text
+                    : data.current.condition.text}
+                </h4>
               </div>
               <div className={styles.extraInfo}>
-                <p>Precipitaciones: {selectedTime.precip_mm} mm</p>
-                <p>Humedad: {selectedTime.humidity}%</p>
-                <p>Viento: {selectedTime.wind_kph} km/h</p>
+                <p>
+                  Precipitaciones:
+                  {selectedTime
+                    ? selectedTime.precip_mm
+                    : data.current.precip_mm}
+                  mm
+                </p>
+                <p>
+                  Humedad:
+                  {selectedTime ? selectedTime.humidity : data.current.humidity}
+                  %
+                </p>
+                <p>
+                  Viento:
+                  {selectedTime ? selectedTime.wind_kph : data.current.wind_kph}
+                  km/h
+                </p>
               </div>
             </div>
           </div>
@@ -56,7 +84,7 @@ export const CurrentWeather = () => {
                 {data.location.name}, {data.location.country}
               </h3>
               <h4>
-                {selectedTime.time
+                {selectedTime?.time
                   ? capitalizeString(moment(selectedTime.time).calendar())
                   : capitalizeString(
                       moment(data.location.localtime).calendar()
