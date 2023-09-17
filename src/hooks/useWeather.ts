@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export const useWeather = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false)
   const dispatch: AppDispatch = useDispatch();
   const { data, city, selectedTime, requests } = useSelector(
     (state: RootState) => state.weather
@@ -18,7 +19,8 @@ export const useWeather = () => {
 
   const fetchWeather = async () => {
     setIsLoading(true);
-    dispatch(getWeather(city));
+    setNotFound(false)
+    dispatch(getWeather(city, setNotFound));
     if (!selectedTime) {
       dispatch(setSelectedTime(data?.current));
     }
@@ -49,6 +51,7 @@ export const useWeather = () => {
     selectedTime,
     requests,
     isLoading,
+    notFound,
     fetchCity,
     changeTime,
   };

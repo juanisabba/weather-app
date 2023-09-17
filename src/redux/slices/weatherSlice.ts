@@ -1,5 +1,4 @@
 import { AppDispatch } from "../store";
-import { messageHandler } from "../../utlis/messageHandler";
 import {
   Hour,
   IWeather,
@@ -43,21 +42,26 @@ const weatherSlice = createSlice({
 export const { setWeather, setCity, setSelectedTime, addRequest } =
   weatherSlice.actions;
 
-export const getWeather = (city: string) => async (dispatch: AppDispatch) => {
-  const url =  `${import.meta.env.VITE_API_URL}/v1/forecast.json?key=${import.meta.env.VITE_API_KEY}&q=${city}&days=7&aqi=no&alerts=no`
-  try {
-    const response: IWeatherResponse = await axios({
-      method: "GET",
-      url,
-    });
-    dispatch(setWeather(response.data));
-  } catch (e) {
-    messageHandler({
-      type: "error",
-      message: "Ciudad no encontrada",
-    });
-    return;
-  }
-};
+export const getWeather =
+  (city: string, setNotFound: (value: boolean) => void) => async (dispatch: AppDispatch) => {
+    const url = `${import.meta.env.VITE_API_URL}/v1/forecast.json?key=${
+      import.meta.env.VITE_API_KEY
+    }&q=${city}&days=7&aqi=no&alerts=no`;
+    try {
+      const response: IWeatherResponse = await axios({
+        method: "GET",
+        url,
+      });
+      dispatch(setWeather(response.data));
+    } catch (e) {
+      setNotFound(true);
+    }
+    //   messageHandler({
+    //     type: "error",
+    //     message: "Ciudad no encontrada",
+    //   });
+    //   return;
+    // }
+  };
 
 export default weatherSlice.reducer;

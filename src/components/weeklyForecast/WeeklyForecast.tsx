@@ -31,7 +31,7 @@ export const WeeklyForecast = () => {
               <div key={index + 3} className={styles.day}>
                 <h3>
                   {moment(date)
-                    .add(index + 3, "days")
+                    .add(3 , "days")
                     .format("dddd")}
                 </h3>
                 <img src={day.condition.icon} alt={day.condition.text} />

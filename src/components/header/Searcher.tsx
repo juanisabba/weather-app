@@ -6,7 +6,7 @@ import styles from "./styles.module.less";
 
 export const Searcher = () => {
   const [newCity, setNewCity] = useState("");
-  const { fetchCity } = useWeather();
+  const { fetchCity, notFound } = useWeather();
   const { theme } = useTheme();
 
   //Search city
@@ -26,6 +26,7 @@ export const Searcher = () => {
           value={newCity}
         />
       </form>
+      {notFound && <p className={styles.notFound}>Ciudad no encontrada</p>}
     </div>
   );
 };
