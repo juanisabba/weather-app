@@ -18,6 +18,7 @@ import moment from "moment";
 import styles from "./App.module.less";
 
 import "moment/dist/locale/es";
+import { PartlyCloudyDay } from "./assets/background";
 moment.locale("es");
 
 export const App = () => {
@@ -34,7 +35,7 @@ export const App = () => {
   // Change the background depending on the weather
   const backgorundWeather = timeOfDay && selectedTime
     ? weatherBackgrounds[timeOfDay][selectedTime?.condition.text]
-    : timeOfDay && data && weatherBackgrounds[timeOfDay][data?.current.condition.text];
+    : timeOfDay && data ? weatherBackgrounds[timeOfDay][data?.current.condition.text] : PartlyCloudyDay;
   return (
     <div
       className={`${styles.appContainer} ${styles[theme]}`}

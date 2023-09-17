@@ -12,10 +12,8 @@ export const Header = ({ onClick }: Props) => {
   const { toggle, theme } = useTheme();
   return (
     <div className={`${styles.headerContainer} ${styles[theme]}`}>
-                <ToastContainer />
-
+      <ToastContainer />
       <Searcher />
-
       {/* Favorites and theme container */}
       <div className={styles.iconsContainer}>
         <button onClick={toggle} className={styles.themeContainer}>
@@ -23,7 +21,7 @@ export const Header = ({ onClick }: Props) => {
             src={theme === "light" ? MoonIcon : SunIcon}
             alt="Change Theme Icon"
           />
-           <span className={styles.tooltipText}>Cambiar tema</span>
+          <span className={styles.tooltipText}>Cambiar tema</span>
         </button>
         <button className={styles.buttonFavorite} onClick={onClick}>
           Mis Favoritos

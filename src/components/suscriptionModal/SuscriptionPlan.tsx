@@ -20,7 +20,7 @@ export const SuscriptionPlan = ({ title, price, benefits, color }: Props) => {
         <div className={styles.info} style={{ backgroundColor: color }}>
           {benefits.map(({ id, included, name }) => (
             <div key={id} className={styles.infoItem}>
-              <img src={included ? CheckIcon : CrossIcon} alt="" />
+              <img src={included ? CheckIcon : CrossIcon} alt={included ? "check" : "cross"} />
               <p>{name}</p>
             </div>
           ))}

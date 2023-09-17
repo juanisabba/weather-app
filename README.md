@@ -1,6 +1,7 @@
 # Weather App React + Typescript + Vite
 
 Aplicación de clima utilizando la API de https://www.weatherapi.com/ con las opciones de buscar ciudades, ver el pronóstico detallado de las próximas 24hs, ver el pronóstico de la semana, cambiar el tema de la aplicación (claro u oscuro) y agregar ciudades a una lista de favoritos. Se pueden realizar 5 peticiones de forma gratuita, después de eso se abrirá un modal para continuar con una suscripción. 
+También puedes ver la aplicación desplegada en https://juani-weather-app.netlify.app/.
 
 ## Características principales
 

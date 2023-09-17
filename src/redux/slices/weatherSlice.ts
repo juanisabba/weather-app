@@ -42,9 +42,10 @@ const weatherSlice = createSlice({
 export const { setWeather, setCity, setSelectedTime, addRequest } =
   weatherSlice.actions;
 
-export const getWeather =
-  (city: string, setNotFound: (value: boolean) => void) => async (dispatch: AppDispatch) => {
-    const url = `${import.meta.env.VITE_API_URL}/v1/forecast.json?key=${import.meta.env.VITE_API_KEY}&q=${city}&days=7&aqi=no&alerts=no`;
+export const getWeather = (city: string, setNotFound: (value: boolean) => void) => async (dispatch: AppDispatch) => {
+    const API_URL = process.env.NODE_ENV === 'development' ? import.meta.env.VITE_DEV_API_URL : import.meta.env.VITE_API_URL;
+
+    const url = `${API_URL}/v1/forecast.json?key=${import.meta.env.VITE_API_KEY}&q=${city}&days=7&aqi=no&alerts=no`;
     try {
       const response: IWeatherResponse = await axios({
         method: "GET",
@@ -54,12 +55,6 @@ export const getWeather =
     } catch (e) {
       setNotFound(true);
     }
-    //   messageHandler({
-    //     type: "error",
-    //     message: "Ciudad no encontrada",
-    //   });
-    //   return;
-    // }
   };
 
 export default weatherSlice.reducer;

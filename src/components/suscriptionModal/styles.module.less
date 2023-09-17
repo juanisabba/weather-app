@@ -1,6 +1,6 @@
 @primary-color: #fff;
 @secondary-color: #000;
-@backgorund-color: #4e4141;
+@background-color: #4e4141;
 @shadow-color: rgba(0, 0, 0, 0.4);
 
 .modalContainer {
@@ -16,7 +16,7 @@
   .modal {
     width: 100%;
     max-width: 1000px;
-    background-color: @backgorund-color;
+    background-color: @background-color;
     padding: 30px;
     border-radius: 10px;
     text-align: center;
@@ -83,5 +83,18 @@
       font-size: 20px;
       padding: 6px 0;
     }
+  }
+}
+
+@media (max-width: 1000px) {
+  .modal{
+    max-width: auto;
+    overflow-x: scroll;
+    h2{
+      font-size: 22px;
+    }
+  }
+  .cardsContainer{
+    width: 900px;
   }
 }
