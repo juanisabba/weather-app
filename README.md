@@ -12,6 +12,7 @@ Aplicación de clima utilizando la API de https://www.weatherapi.com/ con las op
 
 ## Instalación y Uso
 
-1. Clona este repositorio.
+1. Clona este repositorio ejecutando `git clone https://github.com/juanisabba/weather-app.git`.
 2. Instala las dependencias ejecutando `npm install`.
-4. Para iniciar la aplicación, ejecuta `npm run dev`. Se levantará en el puerto 5173.
+4. Para generar un empaquetado ejecuta `npm run build`. Se creará una carpeta "dist".
+5. Para iniciar la aplicación, ejecuta `npm run preview`. Se levantará en el puerto 4173.
