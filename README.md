@@ -26,3 +26,6 @@ Modo claro
 
 Lista de favoritos
 ![image](https://github.com/juanisabba/weather-app/blob/main/src/assets/examples/example3.jpg)
+
+Modal de suscripción
+![image](https://github.com/juanisabba/weather-app/blob/main/src/assets/examples/example4.jpg)
