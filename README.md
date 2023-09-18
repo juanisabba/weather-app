@@ -19,7 +19,7 @@ También puedes ver la aplicación desplegada en https://juani-weather-app.netli
 5. Para iniciar la aplicación, ejecuta `npm run preview`. Se levantará en el puerto 4173.
 
 Modo oscuro
-![image](https://raw.githubusercontent.com/juanisabba/weather-app/main/src/assets/examples/example1.jpg?token=GHSAT0AAAAAACHSSPNAOIMKNIFKZDSAETSIZIHSVNQ)
+![image](https://github.com/juanisabba/weather-app/blob/main/src/assets/examples/example1.jpg)
 
 Modo claro
 ![image](https://raw.githubusercontent.com/juanisabba/weather-app/main/src/assets/examples/example2.jpg?token=GHSAT0AAAAAACHSSPNATTHYYLWF2UXFJQ2QZIHSYFA)
