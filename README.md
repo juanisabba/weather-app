@@ -17,3 +17,5 @@ También puedes ver la aplicación desplegada en https://juani-weather-app.netli
 2. Instala las dependencias ejecutando `npm install`.
 4. Para generar un empaquetado ejecuta `npm run build`. Se creará una carpeta "dist".
 5. Para iniciar la aplicación, ejecuta `npm run preview`. Se levantará en el puerto 4173.
+
+   ![image](https://raw.githubusercontent.com/juanisabba/weather-app/main/src/assets/examples/example1.jpg?token=GHSAT0AAAAAACHSSPNAOIMKNIFKZDSAETSIZIHSVNQ)
