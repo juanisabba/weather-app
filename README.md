@@ -18,4 +18,11 @@ También puedes ver la aplicación desplegada en https://juani-weather-app.netli
 4. Para generar un empaquetado ejecuta `npm run build`. Se creará una carpeta "dist".
 5. Para iniciar la aplicación, ejecuta `npm run preview`. Se levantará en el puerto 4173.
 
-   ![image](https://raw.githubusercontent.com/juanisabba/weather-app/main/src/assets/examples/example1.jpg?token=GHSAT0AAAAAACHSSPNAOIMKNIFKZDSAETSIZIHSVNQ)
+Modo oscuro
+![image](https://raw.githubusercontent.com/juanisabba/weather-app/main/src/assets/examples/example1.jpg?token=GHSAT0AAAAAACHSSPNAOIMKNIFKZDSAETSIZIHSVNQ)
+
+Modo claro
+![image](https://raw.githubusercontent.com/juanisabba/weather-app/main/src/assets/examples/example2.jpg?token=GHSAT0AAAAAACHSSPNATTHYYLWF2UXFJQ2QZIHSYFA)
+
+Lista de favoritos
+![image](https://raw.githubusercontent.com/juanisabba/weather-app/main/src/assets/examples/example3.jpg?token=GHSAT0AAAAAACHSSPNB7IHZGVRWVJTDSALIZIHSYZQ)
