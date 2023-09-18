@@ -15,7 +15,7 @@ También puedes ver la aplicación desplegada en https://juani-weather-app.netli
 
 1. Clona este repositorio ejecutando `git clone https://github.com/juanisabba/weather-app.git`.
 2. Instala las dependencias ejecutando `npm install`.
-4. Para generar un empaquetado ejecuta `npm run build`. Se creará una carpeta "dist".
+4. Para empaquetar la aplicación ejecuta `npm run build`. Se creará una carpeta "dist".
 5. Para iniciar la aplicación, ejecuta `npm run preview`. Se levantará en el puerto 4173.
 
 Modo oscuro
