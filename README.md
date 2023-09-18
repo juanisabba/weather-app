@@ -22,7 +22,7 @@ Modo oscuro
 ![image](https://github.com/juanisabba/weather-app/blob/main/src/assets/examples/example1.jpg)
 
 Modo claro
-![image](https://raw.githubusercontent.com/juanisabba/weather-app/main/src/assets/examples/example2.jpg?token=GHSAT0AAAAAACHSSPNATTHYYLWF2UXFJQ2QZIHSYFA)
+![image](https://github.com/juanisabba/weather-app/blob/main/src/assets/examples/example2.jpg)
 
 Lista de favoritos
-![image](https://raw.githubusercontent.com/juanisabba/weather-app/main/src/assets/examples/example3.jpg?token=GHSAT0AAAAAACHSSPNB7IHZGVRWVJTDSALIZIHSYZQ)
+![image](https://github.com/juanisabba/weather-app/blob/main/src/assets/examples/example3.jpg)
